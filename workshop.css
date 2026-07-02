@@ -11,9 +11,14 @@
     --radius:18px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{
+    scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+  }
   body{
     margin:0;
+    padding:0;
     background:var(--white);
     color:var(--ink);
     font-family:'Inter',sans-serif;
@@ -39,12 +44,15 @@
   section{position:relative;}
 
   header.site{
-    position:sticky;
+    position:fixed;
     top:0;
+    left:0;
+    right:0;
     z-index:50;
-    background:rgba(255,255,255,0.88);
-    backdrop-filter:blur(8px);
+    background:var(--white);
     border-bottom:1px solid var(--line);
+    margin:0;
+    padding:0;
   }
   header.site .wrap{
     display:flex;
@@ -65,7 +73,8 @@
   .header-tag strong{color:var(--red);display:block;font-size:13.5px;}
 
   .hero{
-    padding:clamp(40px,5vw,72px) 0 clamp(56px,8vw,96px);
+    padding-top:calc(clamp(40px,5vw,72px) + 76px);
+    padding-bottom:clamp(56px,8vw,96px);
     background:linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
     border-bottom:1px solid var(--line);
     overflow:hidden;
@@ -459,10 +468,8 @@
 
   /* ═══════════════════════════════════
      ELEMENTOS GRÁFICOS DE PRICING
-     COLADOS NAS LATERAIS DA TELA
      ═══════════════════════════════════ */
 
-  /* etiquetas no hero — vazam o padding */
   .hero .wrap > div:first-child{position:relative;}
   .hero .wrap > div:first-child::before{
     content:'\f02b';
@@ -493,7 +500,6 @@
     transform:rotate(-10deg);
   }
 
-  /* serrilhado — AGORA NA SECTION, não no wrap */
   .agenda::before{
     content:'';
     position:absolute;
@@ -515,13 +521,12 @@
     z-index:0;
   }
 
-  /* carrinho — colado na direita */
   .why::before{
     content:'\f07a';
     font-family:'Font Awesome 6 Free';
     font-weight:600;
     position:absolute;
-    right:15vw; top:15%;
+    right:0; top:15%;
     font-size:110px;
     color:var(--ink);
     opacity:0.025;
@@ -529,14 +534,13 @@
     z-index:0;
   }
 
-  /* cifrões no rodapé da seção */
   .why::after{
     content:'$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $';
     position:absolute;
-    left:0; bottom:30px;
+    left:0; bottom:20px;
     width:100%;
     font-family:'IBM Plex Mono',monospace;
-    font-size:22px;
+    font-size:20px;
     letter-spacing:22px;
     color:var(--line);
     opacity:0.4;
@@ -546,13 +550,12 @@
     overflow:hidden;
   }
 
-  /* cartão de crédito — colado na esquerda */
   .guests::before{
     content:'\f09d';
     font-family:'Font Awesome 6 Free';
     font-weight:900;
     position:absolute;
-    left:5vh; top:30%;
+    left:0; top:30%;
     font-size:150px;
     color:var(--ink);
     opacity:0.025;
@@ -561,13 +564,12 @@
     transform:rotate(-15deg);
   }
 
-  /* calculadora — colada na direita */
   .guests::after{
     content:'\f1ec';
     font-family:'Font Awesome 6 Free';
     font-weight:900;
     position:absolute;
-    right:10vh; bottom:25%;
+    right:0; bottom:25%;
     font-size:140px;
     color:var(--ink);
     opacity:0.025;
@@ -576,7 +578,6 @@
     transform:rotate(10deg);
   }
 
-  /* moldura dashed nos cards */
   .guest-card::after{
     content:'';
     position:absolute;
@@ -588,7 +589,6 @@
     z-index:0;
   }
 
-  /* picote no topo do footer */
   footer.site::before{
     content:'';
     position:absolute;
@@ -598,11 +598,10 @@
     pointer-events:none;
   }
 
-  /* cifrão no footer */
   footer.site::after{
     content:'$';
     position:absolute;
-    right:14vw; bottom:20px;
+    right:0; bottom:20px;
     font-family:'Space Grotesk',sans-serif;
     font-size:130px;
     font-weight:700;
@@ -613,6 +612,8 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:880px){
+    header.site{position:sticky;}
+    .hero{padding-top:clamp(40px,5vw,72px);}
     .hero .wrap{grid-template-columns:1fr;}
     .ticket-stage{margin-top:10px;}
     .why-grid{grid-template-columns:1fr;}
