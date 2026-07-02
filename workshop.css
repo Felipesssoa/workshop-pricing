@@ -633,3 +633,10 @@
   @media (max-width:880px){
     .footer-top{border-bottom:none; padding-bottom:0;}
   }
+  @media (min-width: 1024px) {
+  html {
+    transform: scale(1.1);
+    transform-origin: top left;
+    width: 90.909%;
+  }
+}
