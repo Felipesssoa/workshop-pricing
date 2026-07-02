@@ -169,13 +169,15 @@
     background:var(--ink);
     color:var(--white);
   }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px -8px rgba(0,0,0,0.35);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px -8px rgba(0,0,0,0.35);background:var(--green);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
   .btn-ghost{
     background:transparent;
     color:var(--ink);
     border:1.5px solid var(--line);
   }
-  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px);}
+  .btn-ghost:hover{border-color:var(--green);transform:translateY(-2px); transition: transform .18s ease, border-color .18s ease;}
 
   /* ---------- ticket signature element ---------- */
   .ticket-stage{
@@ -385,8 +387,8 @@
     font-weight:600;
     font-size:14px;
   }
-  .why-card:nth-child(odd) .icon{background:var(--red-soft);color:var(--red);}
-  .why-card:nth-child(even) .icon{background:var(--green-soft);color:var(--green);}
+  .why-card:nth-child(odd) .icon{background:var(--red);color:var(--white);}
+  .why-card:nth-child(even) .icon{background:var(--green);color:var(--white);}
   .why-card h3{
     font-size:18px;
     font-weight:600;
@@ -458,10 +460,9 @@
     color:var(--ink);
     }
     .guest-role{
-    font-family:'IBM Plex Mono',monospace;
+    font-family: 'Inter', sans-serif;
     font-size:11px;
     letter-spacing:0.06em;
-    text-transform:uppercase;
     color:var(--red);
     margin-bottom:10px;
     display:block;
@@ -579,3 +580,256 @@
         padding-bottom: 0;
     }
   } 
+
+
+
+    /* ═══════════════════════════════════════════
+     elementos gráficos que remetem a pricing
+     ═══════════════════════════════════════════ */
+
+  /* etiqueta de preço — ícone grande decorativo */
+  .hero .wrap > div:first-child{
+    position:relative;
+  }
+  .hero .wrap > div:first-child::before{
+    content:'\f02b';  /* fa-solid fa-tag */
+    font-family:'Font Awesome 6 Free';
+    font-weight:900;
+    position:absolute;
+    top:-30px;
+    right:20px;
+    font-size:48px;
+    color:var(--red);
+    opacity:0.1;
+    pointer-events:none;
+    z-index:0;
+    transform:rotate(15deg);
+  }
+
+  /* segunda etiqueta menor */
+  .hero .wrap > div:first-child::after{
+    content:'\f02b';
+    font-family:'Font Awesome 6 Free';
+    font-weight:900;
+    position:absolute;
+    top:-20px;
+    right:70px;
+    font-size:32px;
+    color:var(--red);
+    opacity:0.07;
+    pointer-events:none;
+    z-index:0;
+    transform:rotate(-10deg);
+  }
+
+  /* borda serrilhada lateral — cupom fiscal */
+  .agenda .wrap{
+    position:relative;
+  }
+  .agenda .wrap::before{
+    content:'';
+    position:absolute;
+    left:-16px;
+    top:60px;
+    bottom:60px;
+    width:2px;
+    background:repeating-linear-gradient(
+      to bottom,
+      var(--line) 0,
+      var(--line) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    opacity:0.5;
+    pointer-events:none;
+    z-index:0;
+  }
+  .agenda .wrap::after{
+    content:'';
+    position:absolute;
+    right:-16px;
+    top:60px;
+    bottom:60px;
+    width:2px;
+    background:repeating-linear-gradient(
+      to bottom,
+      var(--line) 0,
+      var(--line) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    opacity:0.5;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* carrinho de compras — marca d'água */
+  .why::before{
+    content:'\f07a';  /* fa-solid fa-cart-shopping */
+    font-family:'Font Awesome 6 Free';
+    font-weight:600;
+    position:absolute;
+    right:8%;
+    top:25%;
+    transform:translateY(-50%);
+    font-size:100px;
+    color:var(--ink);
+    opacity:0.025;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* cifrões no fundo */
+  .why::after{
+    content:'$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $';
+    position:absolute;
+    left:0;
+    bottom:30px;
+    width:100%;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:18px;
+    letter-spacing:20px;
+    color:var(--line);
+    opacity:0.4;
+    pointer-events:none;
+    z-index:0;
+    white-space:nowrap;
+    overflow:hidden;
+  }
+
+  /* etiqueta circular no canto dos cards */
+  .why-card{
+    position:relative;
+    overflow:hidden;
+  }
+  .why-card::before{
+    content:'';
+    position:absolute;
+    top:-16px;
+    right:-16px;
+    width:40px;
+    height:40px;
+    background:var(--cream);
+    border:1.5px solid var(--line);
+    border-radius:50%;
+    opacity:0.5;
+    pointer-events:none;
+    z-index:0;
+  }
+  .why-card::after{
+    content:'';
+    position:absolute;
+    top:-10px;
+    right:-10px;
+    width:4px;
+    height:4px;
+    background:var(--ink-soft);
+    border-radius:50%;
+    opacity:0.3;
+    pointer-events:none;
+    z-index:1;
+  }
+
+
+
+  /* calculadora + cartão — marcas d'água */
+  .guests{
+    position:relative;
+  }
+  .guests::before{
+    content:'\f09d';  /* fa-solid fa-credit-card */
+    font-family:'Font Awesome 6 Free';
+    font-weight:900;
+    position:absolute;
+    left:5%;
+    top:35%;
+    font-size:140px;
+    color:var(--ink);
+    opacity:0.025;
+    pointer-events:none;
+    z-index:0;
+    transform:rotate(-15deg);
+  }
+
+  .guests::after{
+    content:'\f1ec';  /* fa-solid fa-calculator */
+    font-family:'Font Awesome 6 Free';
+    font-weight:900;
+    position:absolute;
+    right:5%;
+    bottom:25%;
+    font-size:130px;
+    color:var(--ink);
+    opacity:0.025;
+    pointer-events:none;
+    z-index:0;
+    transform:rotate(10deg);
+  }
+
+  /* sublinhado de total */
+  .section-head h2{
+    position:relative;
+  }
+  .section-head h2::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:50px;
+    height:3px;
+    background:var(--red);
+    border-radius:2px;
+  }
+
+  /* moldura de etiqueta nos guests */
+  .guest-card{
+    position:relative;
+  }
+  .guest-card::after{
+    content:'';
+    position:absolute;
+    top:8px;
+    left:8px;
+    right:8px;
+    bottom:8px;
+    border:1.5px dashed var(--line);
+    border-radius:14px;
+    opacity:0.3;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* rodapé com picote de recibo */
+  footer.site{
+    position:relative;
+  }
+  footer.site::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:10%;
+    right:10%;
+    height:2px;
+    background:repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.15) 0,
+      rgba(255,255,255,0.15) 4px,
+      transparent 4px,
+      transparent 10px
+    );
+    pointer-events:none;
+  }
+
+  /* cifrão decorativo no footer */
+  footer.site::after{
+    content:'$';
+    position:absolute;
+    right:8%;
+    bottom:20px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:120px;
+    font-weight:700;
+    color:rgba(255,255,255,0.03);
+    pointer-events:none;
+    line-height:1;
+  }
