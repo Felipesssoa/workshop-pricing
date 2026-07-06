@@ -8,6 +8,8 @@
     --line:#E7E2D8;
     --red-soft:#FDECEB;
     --green-soft:#E8F7EE;
+    --blue:#277ad3;
+    --blue-soft:#c8e3ff;
     --radius:18px;
   }
   *{box-sizing:border-box;}
@@ -327,6 +329,7 @@
     white-space:nowrap;
   }
   .tag-chip.red{background:var(--red-soft);color:var(--red);}
+  .tag-chip.blue{background:var(--blue-soft);color:var(--blue);}
   .tag-chip.green{background:var(--green-soft);color:var(--green);}
 
   .why{
